@@ -4,7 +4,7 @@
 # Backs up existing dotfiles just in case.
 #
 
-for dotfile in `ls -1 .*`; do
+for dotfile in `ls -A1 | egrep '^\.'`; do
 	cp -v $HOME/$dotfile $HOME/$dotfile.backup
 	cp -fv $dotfile $HOME/$dotfile
 done
