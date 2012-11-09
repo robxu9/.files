@@ -5,7 +5,9 @@
 #
 
 for dotfile in `ls -A1 | egrep '^\.'`; do
-	cp -v $HOME/$dotfile $HOME/$dotfile.backup
+	if [ -f $HOME/$dotfile.backup]; then
+		cp -v $HOME/$dotfile $HOME/$dotfile.backup
+	fi
 	cp -fv $dotfile $HOME/$dotfile
 done
 
