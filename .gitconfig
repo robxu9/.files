@@ -1,3 +1,5 @@
 [user]
 	name = Robert Xu
 	email = robxu9@gmail.com
+[branch]
+	autosetuprebase = always
