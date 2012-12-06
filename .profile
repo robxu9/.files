@@ -21,3 +21,11 @@ if [ -d "$HOME/PATH/bin" ] ; then
     PATH="$HOME/PATH/bin:$PATH"
 fi
 
+# set PATH for go related directories
+if [ -d "$HOME/PATH/goroot" ]; then
+	PATH="$HOME/PATH/goroot/bin:$PATH"
+fi
+
+if [ -d "$HOME/PATH/gopath" ]; then
+	PATH="$HOME/PATH/gopath/bin:$PATH"
+fi
