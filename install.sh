@@ -19,20 +19,25 @@ for dotfile in `ls -A1 | egrep '^\.'`; do
 	cp -fv $dotfile $HOME/$dotfile
 done
 
-mkdir -pv $HOME/PATH/{bin,etc,gopath,include,lib,lib64,libexec,share,src}
+mkdir -pv $HOME/{bin,Installations}/
+mkdir -pv $HOME/.local/{bin,etc,include,lib,lib64,libexec,share,src}
 
 if [ "$1" != "NO" ]; then
-	hg clone https://code.google.com/p/go $HOME/PATH/goroot
-	$HOME/PATH/goroot/src/all.bash
+	hg clone https://code.google.com/p/go $HOME/Installations/go
+	$HOME/PATH/go/src/all.bash
 else
-	path=http://go.googlecode.com/files/go1.0.3.linux-amd64.tar.gz
+	path=https://go.googlecode.com/files/go1.1.2.linux-amd64.tar.gz
 	if [ "`uname -i`" == "i386" ]; then
-		path=http://go.googlecode.com/files/go1.0.3.linux-386.tar.gz
+		path=https://go.googlecode.com/files/go1.1.2.linux-386.tar.gz
 	fi
-	pushd $HOME/PATH
+	pushd $HOME/Installations
 		curl $path | tar zx
-		mv go goroot
 	popd
 fi
 
-mkdir -pv $HOME/PATH/gopath/{bin,pkg,src}
+mkdir -pv $HOME/Documents/goworkspaces/common/{bin,pkg,src}
+
+git clone git://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+
+source $HOME/.bash_profile

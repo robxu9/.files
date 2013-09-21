@@ -1,5 +1,7 @@
 [user]
-	name = Robert Xu
 	email = robxu9@gmail.com
+	name = Robert Xu
+[http]
+	postBuffer = 524288000
 [branch]
 	autosetuprebase = always
