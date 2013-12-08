@@ -5,6 +5,10 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
+if [ -f ~/.secrets ]; then
+    . ~/.secrets
+fi
+
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
@@ -14,7 +18,8 @@ export PATH
 # Golang
 export PATH=$PATH:$HOME/Installations/go/bin
 export GOROOT=$HOME/Installations/go
-export GOPATH=$HOME/Documents/goworkspaces/common
+export GOPATH=$HOME/Installations/GOPATH
+export PATH=$PATH:$GOPATH/bin
 
 # load vim correctly (stares at git)
 export EDITOR=vim
