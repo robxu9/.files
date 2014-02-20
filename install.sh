@@ -20,6 +20,7 @@ for dotfile in `ls -A1 | egrep '^\.'`; do
 done
 
 mkdir -pv $HOME/{bin,Installations}/
+mkdir -pv $HOME/Installations/GOPATH/{bin,pkg,src}
 mkdir -pv $HOME/.local/{bin,etc,include,lib,lib64,libexec,share,src}
 
 if [ "$1" != "NO" ]; then
