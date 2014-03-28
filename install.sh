@@ -24,12 +24,12 @@ mkdir -pv $HOME/Installations/GOPATH/{bin,pkg,src}
 mkdir -pv $HOME/.local/{bin,etc,include,lib,lib64,libexec,share,src}
 
 if [ "$1" != "NO" ]; then
-	hg clone https://code.google.com/p/go $HOME/Installations/go
+	hg clone -u release https://code.google.com/p/go $HOME/Installations/go
 	$HOME/PATH/go/src/all.bash
 else
-	path=https://go.googlecode.com/files/go1.2.linux-amd64.tar.gz
+	path=https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
 	if [ "`uname -i`" == "i386" ]; then
-		path=https://go.googlecode.com/files/go1.2.linux-386.tar.gz
+		path=https://go.googlecode.com/files/go1.2.1.linux-386.tar.gz
 	fi
 	pushd $HOME/Installations
 		curl $path | tar zx
