@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Install dotfiles to home directory and create relevant directories.
 # Backs up existing dotfiles just in case.
