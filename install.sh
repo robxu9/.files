@@ -28,15 +28,13 @@ if [ "$1" != "NO" ]; then
 	$HOME/PATH/go/src/all.bash
 else
 	path=https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
-	if [ "`uname -i`" == "i386" ]; then
+	if [ "`uname -i`" == "i*86" ]; then
 		path=https://go.googlecode.com/files/go1.2.1.linux-386.tar.gz
 	fi
 	pushd $HOME/Installations
 		curl $path | tar zx
 	popd
 fi
-
-mkdir -pv $HOME/Documents/goworkspaces/common/{bin,pkg,src}
 
 git clone git://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
