@@ -27,12 +27,9 @@ if [ "$1" != "NO" ]; then
 	hg clone -u release https://code.google.com/p/go $HOME/Installations/go
 	$HOME/PATH/go/src/all.bash
 else
-	path=https://go.googlecode.com/files/go1.2.1.linux-amd64.tar.gz
-	if [ "`uname -i`" == "i*86" ]; then
-		path=https://go.googlecode.com/files/go1.2.1.linux-386.tar.gz
-	fi
+    [ "`uname -i`" == "x86_64" ] && arch="amd64" || arch="386"
 	pushd $HOME/Installations
-		curl $path | tar zx
+		curl https://go.googlecode.com/files/go1.2.1.linux-$arch.tar.gz | tar zx
 	popd
 fi
 
