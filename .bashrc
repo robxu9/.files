@@ -6,6 +6,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+shopt -s direxpand
+
 case $- in
     *i*)
         echo "Have a lot of fun..."
