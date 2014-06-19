@@ -4,6 +4,8 @@
 # Backs up existing dotfiles just in case.
 #
 
+goversion=1.3
+
 if [ "$1" != "NO" ]; then
 
 	echo "Note: This *will* build a checkout of Go."
@@ -25,11 +27,11 @@ mkdir -pv $HOME/.local/{bin,etc,include,lib,lib64,libexec,share,src}
 
 if [ "$1" != "NO" ]; then
 	hg clone -u release https://code.google.com/p/go $HOME/Installations/go
-	$HOME/PATH/go/src/all.bash
+	$HOME/Installations/go/src/all.bash
 else
     [ "`uname -i`" == "x86_64" ] && arch="amd64" || arch="386"
 	pushd $HOME/Installations
-		curl https://go.googlecode.com/files/go1.2.1.linux-$arch.tar.gz | tar zx
+        curl https://storage.googleapis.com/golang/go${goversion}.linux-$arch.tar.gz | tar xz
 	popd
 fi
 
