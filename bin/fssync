@@ -1,0 +1,6 @@
+SRC="/path/to/new/src/" # keep trailing slash; means copy contents
+DEST="robert@dev-dsk:workspaces"
+RSYNC="rsync -azP --delete-after $SRC $DEST"
+
+$RSYNC
+fswatch -o $SRC | while read f; do $RSYNC; done

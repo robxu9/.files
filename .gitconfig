@@ -3,5 +3,31 @@
 	name = Robert Xu
 [http]
 	postBuffer = 524288000
+	cookiefile = /Users/rxu/.gitcookies
 [branch]
 	autosetuprebase = always
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+    required = true
+[alias]
+    change = codereview change
+    gofmt = codereview gofmt
+    mail = codereview mail
+    pending = codereview pending
+    submit = codereview submit
+    sync = codereview sync
+[sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.gmail.com
+    smtpuser = robxu9@gmail.com
+    smtpserverport = 587
+[credential]
+	helper = osxkeychain
+[url "https://"]
+	insteadOf = git://
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
